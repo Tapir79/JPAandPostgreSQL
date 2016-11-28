@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>JPA test</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"/>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    </head>
+
+    <body class="container">
+        <h1 th:text="${text}"></h1>
+
+        <h2>Fixed values from the <mark>listvalues</mark> table!</h2>
+
+        <form th:action="@{/}" method="POST">
+            <div class="form-group">
+                <select class="form-control" name="book">
+                    <p th:each="index : ${books}">
+                        <option th:text="${index}"> th:text="${index}" </option>
+                    </p>
+                </select>
+            </div>
+            <div class="form-group">
+                <select class="form-control" name="movie">
+                    <p th:each="index : ${movies}">
+                        <option th:text="${index}"> th:text="${index}" </option>
+                    </p>
+                </select>
+
+            </div>
+
+            <button type="submit" class="btn btn-default">Submit to formdata table</button>
+
+        </form>
+
+        <h2>Content of the <mark>formdata</mark> table:</h2>
+        <table class="table"> 
+            <tr th:each="index : ${formdata}">
+                <td th:text="${index}"></td>
+            </tr>
+
+        </table>
+    </body>
+</html>
