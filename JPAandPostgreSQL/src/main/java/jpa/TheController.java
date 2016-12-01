@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-public class ThymeleafController {
+public class TheController {
 
     ArrayList<String> listvalues = new ArrayList<>();
     ArrayList<String> books = new ArrayList<>();
