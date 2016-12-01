@@ -29,11 +29,12 @@ public class TheController {
     FormdataRepository formdatarepository;
 
     @RequestMapping("/")
-    public String home(Model model, @RequestParam(required = false) String content) {
+    public String home(Model model) {
 
         listvalues.clear();
         books.clear();
         movies.clear();
+        formdata.clear();
 
         for (Listvalues listvalues : listvaluesrepository.findAll()) {
             if (listvalues.getListnumber() == 1) {
@@ -42,8 +43,6 @@ public class TheController {
                 this.movies.add(listvalues.getValue());
             }
         }
-
-        formdata.clear();
 
         for (Formdata formdata : formdatarepository.findAll()) {
             this.formdata.add(formdata.getValue() + " inserted at: " + formdata.getDate());
